@@ -1,0 +1,13 @@
+extends layout
+block title
+    title login
+
+block append content
+    div
+        p
+    div email
+        input#email
+    div password
+        input#password
+    div
+        button(onclick="sendRequest('login')") login

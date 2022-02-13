@@ -1,5 +1,17 @@
 extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+block append stylesheets
+    link(rel='stylesheet', href='/stylesheets/index.css')
+
+block append content
+    div hi
+        button(onclick="logout()") logout
+    div.grid-container
+        a.grid-item
+            //img(src="AA.png")
+        a.grid-item
+           // img(src="AA.png")
+        a.grid-item
+          //  img(src="AA.png")
+        a.grid-item
+          //  img(src="AA.png")

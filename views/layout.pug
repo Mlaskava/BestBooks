@@ -1,7 +1,16 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    block title
+      title= title
+    block stylesheets
+      link(rel='stylesheet', href='/stylesheets/layout.css')
+    block scripts
+      script(src='/scripts/userSessionScripts.js')
   body
     block content
+      header SKLEP
+      input
+      button SZUKAJ
+      a#cart(href="http://localhost:3000/cart")  KOSZYK
+      a#login(href="http://localhost:3000/login") ZALOGUJ
