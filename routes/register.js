@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const connection = require('../config/dataBase');
 const bcrypt = require('bcrypt');
+const {checkLogInOutButtonOptions} = require("./login");
 
 router.get('/', function(req, res, next) {
-    res.render('register');
+    const options = checkLogInOutButtonOptions(req);
+    res.render('register', options);
 });
 
 router.post('/', async (req, res, next) => {

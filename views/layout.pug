@@ -9,8 +9,8 @@ html
       script(src='/scripts/userSessionScripts.js')
   body
     block content
-      header SKLEP
-      input
-      button SZUKAJ
-      a#cart(href="http://localhost:3000/cart")  KOSZYK
-      a#login(href="http://localhost:3000/login") ZALOGUJ
+      header
+        a#homepage(href="/") SKLEP
+      nav
+        a.navbarButton#logInOut(href="#" onclick=actionType) #{buttonName}
+        a.navbarButton#cart(href="http://localhost:3000/cart")  Koszyk

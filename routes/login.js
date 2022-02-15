@@ -3,7 +3,8 @@ const passport = require("passport");
 const router = express.Router();
 
 router.get('/', function(req, res, next) {
-    res.render('login');
+    const options = checkLogInOutButtonOptions(req);
+    res.render('login', options);
 });
 
 router.post('/', passport.authenticate('local', {
@@ -15,6 +16,14 @@ router.delete('/', function (req, res){
     req.logOut();
     res.redirect('/');
 })
+
+function checkLogInOutButtonOptions(req) {
+    if (req.isAuthenticated()) {
+        return {actionType: "logout()", buttonName: "Wyloguj"};
+    } else {
+        return {actionType: "redirectToLogin()", buttonName: "Zaloguj"};
+    }
+}
 
 function checkAuthenticated(req, res, next) {
     if (req.isAuthenticated()) {
@@ -34,5 +43,6 @@ function checkNotAuthenticated(req, res, next) {
 module.exports = {
     router,
     checkAuthenticated,
-    checkNotAuthenticated
+    checkNotAuthenticated,
+    checkLogInOutButtonOptions
 }

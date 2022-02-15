@@ -1,6 +1,4 @@
 function sendRequest(requestType){
-
-
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3000/" + requestType, true);
     xhr.setRequestHeader("Content-type", "application/json")
@@ -28,4 +26,8 @@ function logout() {
         console.log(xhr.responseURL);
         document.location.href = xhr.responseURL;
     }
+}
+
+function redirectToLogin() {
+    document.location.href = "http://localhost:3000/login";
 }
