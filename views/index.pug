@@ -3,15 +3,16 @@ extends layout
 block append stylesheets
     link(rel='stylesheet', href='/stylesheets/index.css')
 
+block append scripts
+    script(src='/scripts/index.js')
+
+block append body
+    body(onload="fillCategoriesAndProducts()")
+
 block append content
-    div hi
-        button(onclick="logout()") logout
+    div#categories
+    div#search
+        input#searchbar
+        button#searchbutton Szukaj
+
     div.grid-container
-        a.grid-item
-            //img(src="AA.png")
-        a.grid-item
-           // img(src="AA.png")
-        a.grid-item
-          //  img(src="AA.png")
-        a.grid-item
-          //  img(src="AA.png")

@@ -5,12 +5,22 @@ html
       title= title
     block stylesheets
       link(rel='stylesheet', href='/stylesheets/layout.css')
+      link(rel="preconnect" href="https://fonts.googleapis.com")
+      link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+      link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet")
     block scripts
       script(src='/scripts/userSessionScripts.js')
-  body
-    block content
-      header
-        a#homepage(href="/") SKLEP
-      nav
-        a.navbarButton#logInOut(href="#" onclick=actionType) #{buttonName}
-        a.navbarButton#cart(href="http://localhost:3000/cart")  Koszyk
+  block body
+    body
+      block content
+        nav
+          div.trapezoid
+          a#homepage(href="/") SKLEP
+          a.navbarButton#account(href="http://localhost:3000/account")
+            img(src="../images/user.png")
+          a.navbarButton#cart(href="http://localhost:3000/cart")
+            img(src="../images/cart.png")
+          div.line
+          a.navbarButton#logInOut(href="#" onclick=actionType) #{buttonName}
+          div#borderBar
+

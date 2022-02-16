@@ -1,54 +1,107 @@
-body {
-    background-color: #6080BF;
-    font: 14px "Arial";
-}
 
-header {
-    margin: -8px -8px -16px -8px;
-    background: linear-gradient(90deg, #DBE4FF, WHITE, #DBE4FF);
+body {
+    background-color: #DFECFF;
+    font-family: 'Roboto', sans-serif;
 }
 
 nav {
-    padding-bottom: calc(1vw + 1vh + 1px);
-    margin: 0 -8px 8px -8px;
-    background: linear-gradient(90deg, #DBE4FF, WHITE, #DBE4FF);
-    border-style: none none solid none;
-    border-color: #202080;
+
+    margin: 8px -8px 8px -8px;
+    /*background: linear-gradient(90deg, #DBE4FF, WHITE, #DBE4FF);*/
+
 }
 
 #homepage {
-    font-size: calc(4vh + 3vw);
+    color: BLACK;
+    top: -5px;
+    z-index: 12;
+    position: absolute;
+    font-size: 80px;
+}
+
+.trapezoid {
+    top: 0;
+    position: absolute;
+    border-bottom: 75px solid #6040FF;
+    border-left: 0 solid transparent;
+    border-right: 25px solid transparent;
+    height: 0;
+    width: 235px;
+}
+
+#borderBar {
+    margin-top: 75px;
+    background: linear-gradient(90deg, #6040FF, #6040FF, #BFBFFF);
+    padding: 5px 5px 5px 5px;
+}
+
+.line {
+    position: absolute;
+    border-left: 1px solid GREY;
+    height: 55px;
+    right: 7.5vw;
+    top: 10px;
 }
 
 .navbarButton {
+    font-weight: bold;
     font-size: calc(1vw + 1vh);
-    float: right;
-    position: relative;
-    margin-right: 1vw;
-    top: -10px;
-    border-radius: 4px;
-    border: solid #202080;
+    position: absolute;
+    right: 1vw;
+    top: 1.5vh;
     padding: 5px 5px 0 5px;
     color: #202080;
-    background-color: #BCD8FF;
+}
+
+#logInOut {
+    top: 2.5vh;
+}
+
+#cart {
+    margin-right: 8vw;
+}
+
+#account {
+    margin-right: 12vw;
 }
 
 .navbarButton:hover {
-    background-color: #6080BF;
+    opacity: 0.5;
 }
 
-#searchbar {
-    margin-left: 15vw;
-    background-color: #BCD8FF;
-    border-radius: 3px;
-    border-color: #202080;
-    width: 60vw;
-    height: 3vh;
-    font-size: calc(1vh + 1vw);
+.navbarButton img {
+    width: 40px;
+    height: auto;
 }
 
-#searchbar:focus {
-    outline: none;
+@media screen and (max-width: 1300px) {
+    .line {
+        right: 8.5vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .line {
+        right: 10.5vw;
+    }
+    #cart {
+        margin-right: 10.5vw;
+    }
+    #account {
+        margin-right: 16.5vw;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .line {
+        right: 11.5vw;
+    }
+    #cart {
+        margin-right: 11vw;
+    }
+    #account {
+        margin-right: 19vw;
+    }
 }
 
 a {

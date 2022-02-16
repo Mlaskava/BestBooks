@@ -1,7 +1,105 @@
+#categories {
+    border-radius: 2px;
+    background-color: #E0F0FF;
+    margin: 3vh 0 0 30px;
+    float: left;
+    padding: 10px 10px 10px 10px;
+    width: 14.8vw;
+    height: 84vh;
+}
+
+#categories a {
+    margin-top: 1.5vh;
+    color: #202080;
+    font-size: calc(0.8vw + 0.8vh);
+    font-weight: bold;
+    display: block;
+}
+
+#categories a + a {
+    border-top: 1px solid gray;
+}
+
+
+#categories a:hover {
+    opacity: 0.5;
+}
+
+#search {
+    float: right;
+    margin-top: 5vh;
+    margin-right: 10vw;
+}
+
+#search button {
+    color: #202080;
+    font-weight: bold;
+    font-size: calc(0.9vw + 0.9vh);
+    margin-left: -3px;
+    float: right;
+    background-color: #6040FF;
+    height: 3.9vh;
+    border-radius: 3px;
+    border: solid #6040FF;
+}
+
+#search button:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#searchbar {
+    background-color: WHITE;
+    border-radius: 3px;
+    border: solid #202080;
+    width: 60vw;
+    height: 3vh;
+    font-size: calc(1vh + 1vw);
+}
+
+#searchbar:focus {
+    outline: none;
+}
+
+a + a {
+    padding-top: 8px;
+}
+
 .grid-container {
+    margin-top: 12vh;
+    padding-left: 4vw;
+    padding-right: 4vw;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto;
 }
 .grid-item {
-    padding: 20px;
+    height: 380px;
 }
+
+.grid-item:hover {
+    opacity: 0.9;
+}
+
+.grid-item img {
+    width: 57vh;
+    height: auto;
+}
+
+.grid-item p {
+    color: gray;
+    font-size: calc(1vh + 1vw);
+}
+
+.prize {
+    position: relative;
+    top: -25px;
+    left: 5px;
+}
+
+.name {
+    position: relative;
+    top: -110px;
+    right: 100px;
+    float: right;
+}
+
