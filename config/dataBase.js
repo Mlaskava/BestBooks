@@ -7,7 +7,7 @@ const dataBase = mysql.createConnection({
     database: "storedb"
 });
 
-dataBase.connect(function(err) {
+dataBase.connect(function (err) {
     if (err) throw err;
     console.log("Connected!");
 });

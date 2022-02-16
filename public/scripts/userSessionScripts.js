@@ -1,4 +1,4 @@
-function sendRequest(requestType){
+function sendRequest(requestType) {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "http://localhost:3000/" + requestType, true);
     xhr.setRequestHeader("Content-type", "application/json")

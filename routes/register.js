@@ -4,7 +4,7 @@ const connection = require('../config/dataBase');
 const bcrypt = require('bcrypt');
 const {checkLogInOutButtonOptions} = require("./login");
 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
     const options = checkLogInOutButtonOptions(req);
     res.render('register', options);
 });
@@ -18,8 +18,7 @@ router.post('/', async (req, res, next) => {
             console.log("Inserted " + 1 + " record ");
         });
         res.redirect('/login');
-    }
-    catch {
+    } catch {
         res.redirect('/register');
     }
 

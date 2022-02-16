@@ -9,20 +9,18 @@ function initialize(passport) {
     const authenticateUser = (email, password, done) => {
         const sql = `SELECT * FROM users WHERE email='${email}'`
         connection.query(sql, async function (err, result) {
-            user = result[0];
-            if(!user) {
+            const user = result[0];
+            if (!user) {
 
                 return done(null, false, {message: "No user found"});
             }
             try {
                 if (await bcrypt.compare(password, user.password)) {
                     return done(null, user)
-                }
-                else {
+                } else {
                     return done(null, false, {message: "Wrong username or password!"})
                 }
-            }
-            catch (e) {
+            } catch (e) {
                 return done(e);
             }
         });

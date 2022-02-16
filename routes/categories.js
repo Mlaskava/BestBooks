@@ -5,7 +5,7 @@ const connection = require('../config/dataBase');
 router.get('/', (req, res, next) => {
     const sql = `SELECT * FROM categories;`
     connection.query(sql, (err, result) => {
-        if(err) {
+        if (err) {
             throw err;
         }
         res.send(JSON.stringify(result));
