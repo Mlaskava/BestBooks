@@ -1,13 +1,28 @@
 extends layout
 
+block append stylesheets
+    link(rel='stylesheet', href='/stylesheets/logInRegister.css')
+
 block append content
-    div
-        p
-    div login
-        input#username
-    div email
-        input#email
-    div password
-        input#password
+    div.inputDiv
+        p Imię
+        input#firstname(placeholder="Nazwa użytkownika")
+    div.inputDiv
+        p Nazwisko
+        input#lastname(placeholder="Nazwa użytkownika")
+    div.inputDiv
+        p Adres
+        input#adress(placeholder="Nazwa użytkownika")
+    div.inputDiv
+        p Nazwa użytkownika
+        input#username(placeholder="Nazwa użytkownika")
+    div.inputDiv
+        p Adres e-mail
+        input#email(placeholder="Adres e-mail")
+    div.inputDiv
+        p Hasło
+        input#password(placeholder="Hasło")
     div
         button(onclick="sendRequest('register')") register
+
+    a(href="login") Logowanie

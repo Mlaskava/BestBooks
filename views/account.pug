@@ -1,0 +1,12 @@
+extends layout
+
+block append stylesheets
+    link(rel='stylesheet', href='/stylesheets/account.css')
+
+block append content
+    ul
+        li Imię: #{userData.first_name}
+        li Nazwisko: #{userData.last_name}
+        li Adres: #{userData.address}
+        li Nazwa Użytkownika: #{userData.username}
+        li Adres e-mail: #{userData.email}

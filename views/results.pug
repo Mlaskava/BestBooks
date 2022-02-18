@@ -1,0 +1,15 @@
+extends index
+
+block append stylesheets
+    link(rel='stylesheet', href='/stylesheets/results.css')
+
+block pageSpecific
+    ul
+        for product in products
+            li
+                a.listItem(href="products/" + product.product_id)
+                    img(src="../images/" + product.img_name)
+                    div
+                        p.prize #{product.prize} ZŁ
+                        p.name #{product.name}
+

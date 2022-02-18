@@ -1,0 +1,49 @@
+.inputDiv {
+    margin: 10vh 0 0 35vw;
+}
+
+.inputDiv + .inputDiv {
+    margin-top: 5vh;
+}
+
+.inputDiv p {
+    border-radius: 1px;
+    margin-bottom: -1px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid gray;
+    width: max-content;
+}
+
+.inputDiv input {
+    border-radius: 1px;
+    border: 1px solid gray;
+    font-size: calc(0.9vw + 0.9vh);
+    height: 3vh;
+    width: 30vw;
+}
+
+.inputDiv:focus > p {
+    background-color: #6040FF;
+    color: white;
+}
+
+button {
+    background-color: #6040FF;
+    border-radius: 3px;
+    border: solid #6040FF;
+    margin: 3vh 0 0 40vw;
+    font-size: calc(1vw + 1vh);
+    font-weight: bold;
+    height: 4vh;
+    width: 20vw;
+}
+
+button:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+p {
+
+}

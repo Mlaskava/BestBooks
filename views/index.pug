@@ -4,15 +4,21 @@ block append stylesheets
     link(rel='stylesheet', href='/stylesheets/index.css')
 
 block append scripts
-    script(src='/scripts/index.js')
-
-block append body
-    body(onload="fillCategoriesAndProducts()")
+    script(src='/scripts/queryParametersHelper.js')
 
 block append content
-    div#categories
-    div#search
-        input#searchbar
-        button#searchbutton Szukaj
-
-    div.grid-container
+    block basicLayout
+        div#categories
+            for category in categories
+                a.category(id=category.category_id onclick="adjustQueryParameter(this)") #{category.name}
+        div#search
+            input#searchbar(value= name||"")
+            button#searchbutton(onclick="adjustQueryParameter(this)") Szukaj
+    block pageSpecific
+        div.grid-container
+            for product in products
+                a.grid-item(href="products/" + product.product_id)
+                    img(src="../images/" + product.img_name)
+                    p.prize #{product.prize} ZŁ
+                    p.name #{product.name}
+    //<a class="grid-item" href="products/1"><img src="../images/img.png"><p class="prize">15ZŁ</p><p class="name">Przedmiot 1 z dłuuuugą nazwą</p></a>

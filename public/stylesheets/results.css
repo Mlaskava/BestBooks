@@ -1,0 +1,48 @@
+ul {
+    position: relative;
+    top: 15px;
+    left: 20vw;
+    width: 70vw;
+}
+
+li {
+    border-radius: 2px;
+    background-color: #D7E9FF;
+    position: relative;
+    height: 25vh;
+    margin-top: 10vh;
+    left: -2vw;
+    list-style-type: none;
+}
+
+li:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+li + li {
+    margin-top:2vh;
+}
+
+li img {
+    height: 25vh;
+    width: auto;
+    position: relative;
+
+
+}
+
+li p {
+    float: right;
+    position: relative;
+    color: gray;
+    font-size: calc(1vh + 1vw);
+}
+
+.prize {
+    margin: -2vh 1vw;
+}
+
+.name {
+    margin: -12vh -5vw;
+}

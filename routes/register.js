@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
 router.post('/', async (req, res, next) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 10);
-        const sql = `INSERT INTO users (username, email, password) VALUES ('${req.body.username}', '${req.body.email}', '${hashedPassword}')`
+        const sql = `INSERT INTO users (username, email, first_name, last_name, address, password) VALUES ('${req.body.username}', '${req.body.email}', '${req.body.firstname}', '${req.body.lastname}', '${req.body.adress}', '${hashedPassword}')`
         connection.query(sql, function (err, result) {
             if (err) throw err;
             console.log("Inserted " + 1 + " record ");

@@ -7,6 +7,9 @@ function sendRequest(requestType) {
         password: document.getElementById("password").value
     };
     if (requestType === "register") {
+        json.firstname = document.getElementById("firstname").value;
+        json.lastname = document.getElementById("lastname").value;
+        json.adress  = document.getElementById("adress").value;
         json.username = document.getElementById("username").value
     }
     xhr.send(JSON.stringify(json));

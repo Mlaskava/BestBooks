@@ -10,11 +10,11 @@ const passport = require('passport');
 const initializePassport = require('./config/passport');
 
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/account');
 const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login').router;
 const cartRouter = require('./routes/cart');
-const categoriesRouter = require('./routes/categories');
+const resultsRouter = require('./routes/results');
 const productsRouter = require('./routes/products');
 const dataBase = require('./config/dataBase')
 require('dotenv').config();
@@ -53,11 +53,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/account', usersRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/cart', cartRouter);
-app.use('/categories', categoriesRouter);
+app.use('/results', resultsRouter);
 app.use('/products', productsRouter);
 
 
