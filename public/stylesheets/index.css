@@ -71,11 +71,15 @@ a + a {
     padding-left: 4vw;
     padding-right: 4vw;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto auto;
 }
 
 .grid-item {
     height: 380px;
+    margin-bottom: 20vh;
+}
+
+.grid-item + .grid-item {
 }
 
 .grid-item:hover {
@@ -83,8 +87,11 @@ a + a {
 }
 
 .grid-item img {
-    width: 57vh;
-    height: auto;
+    top: -2vh;
+    bottom: -2vh;
+    position: relative;
+    width: 15vw;
+    height: 45vh;
 }
 
 .grid-item p {
@@ -94,14 +101,11 @@ a + a {
 
 .prize {
     position: relative;
-    top: -25px;
-    left: 5px;
+    top: -5vh;
 }
 
 .name {
     position: relative;
-    top: -110px;
-    right: 100px;
-    float: right;
+    max-width: 15vw;
 }
 

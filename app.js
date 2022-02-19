@@ -15,7 +15,8 @@ const registerRouter = require('./routes/register');
 const loginRouter = require('./routes/login').router;
 const cartRouter = require('./routes/cart');
 const resultsRouter = require('./routes/results');
-const productsRouter = require('./routes/products');
+const productsRouter = require('./routes/product');
+const summaryRouter = require('./routes/summary');
 const dataBase = require('./config/dataBase')
 require('dotenv').config();
 
@@ -59,6 +60,7 @@ app.use('/login', loginRouter);
 app.use('/cart', cartRouter);
 app.use('/results', resultsRouter);
 app.use('/products', productsRouter);
+app.use('/summary', summaryRouter);
 
 
 // catch 404 and forward to error handler

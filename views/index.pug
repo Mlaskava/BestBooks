@@ -18,7 +18,6 @@ block append content
         div.grid-container
             for product in products
                 a.grid-item(href="products/" + product.product_id)
+                    p.name #{product.name}
                     img(src="../images/" + product.img_name)
                     p.prize #{product.prize} ZŁ
-                    p.name #{product.name}
-    //<a class="grid-item" href="products/1"><img src="../images/img.png"><p class="prize">15ZŁ</p><p class="name">Przedmiot 1 z dłuuuugą nazwą</p></a>

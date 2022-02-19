@@ -1,0 +1,9 @@
+extends layout
+
+block append stylesheets
+    link(rel='stylesheet', href='/stylesheets/summary.css')
+
+block append body
+    div#summary
+        p Pomyślnie zakupiono #{count} przedmiotów!
+        a(href="/") Powrót do strony głównej.
