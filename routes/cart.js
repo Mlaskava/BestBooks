@@ -22,7 +22,7 @@ router.post('/', (req, res, next) => {
         const selectSQL = `SELECT * FROM cart NATURAL JOIN products WHERE id=${req.user.id};`
         connection.query(selectSQL, (err, result) => {
             if (req.query.method === "append") {
-                if (result.length === 0 || Number(req.body.amount) + Number(result[0].amount) <= Number(result[0].available_amount)) {
+                if (result.length === 0 || Number(req.body.amount) + result[0].amount <= Number(result[0].available_amount)) {
                     const insertSQL = `INSERT INTO cart (id, product_id, amount) VALUES ('${req.user.id}', '${req.body.product_id}', '${req.body.amount}') ON DUPLICATE KEY UPDATE amount=amount + '${req.body.amount}';`;
                     connection.query(insertSQL, (err) => {
                         if (err) {
@@ -60,7 +60,7 @@ router.post('/', (req, res, next) => {
 
         })
     } else {
-        res.send("Musisz być zalogowany, żeby dodawać przedmioty do koszyka!");
+        res.send({href: "/login"});
     }
 });
 
@@ -68,15 +68,12 @@ router.delete('/', (req, res) => {
     let sql
     if (req.query.entries === "ALL") {
         res.redirect('summary');
-        }
-    else {
+    } else {
         sql = `DELETE FROM cart WHERE id='${req.user.id}' AND product_id='${req.query.entries}';`
         connection.query(sql, (err) => {
             res.redirect('');
         });
     }
-
-
-        })
+})
 //@TODO usuwanie kupionej ilości książek z bazy
 module.exports = router;

@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require("passport");
 const router = express.Router();
 
-router.get('/', function (req, res, next) {
+router.get('/', checkNotAuthenticated, function (req, res, next) {
     const options = checkLogInOutButtonOptions(req);
     res.render('login', options);
 });

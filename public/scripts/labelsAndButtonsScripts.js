@@ -25,7 +25,12 @@ function addToCart() {
 
     cartRequest.onload = () => {
         const response = JSON.parse(cartRequest.response);
-        alert(response.message)
+        if (response.href) {
+            document.location.href = response.href;
+        } else {
+            alert(response.message);
+        }
+
     }
 }
 
