@@ -3,10 +3,13 @@ extends index
 block append stylesheets
     link(rel='stylesheet', href='/stylesheets/results.css')
 
+block append scripts
+    script(src="/scripts/labelsAndButtonsScripts.js")
+
 block pageSpecific
     ul
         for product in products
-            li
+            li(onclick="redirect('products/" + product.product_id + "')")
                 a.listItem(href="products/" + product.product_id)
                     img(src="../images/" + product.img_name)
                     div

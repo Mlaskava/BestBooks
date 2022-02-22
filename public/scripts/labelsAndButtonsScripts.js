@@ -1,5 +1,5 @@
 function decreaseValue(element, isUpdateNeeded) {
-    const input = document.getElementsByClassName(element.className)[1];
+    const input = document.getElementById(element.getAttribute('for'));
     if (input.value > 1) {
         input.value -= 1;
     }
@@ -9,7 +9,7 @@ function decreaseValue(element, isUpdateNeeded) {
 }
 
 function increaseValue(element, isUpdateNeeded) {
-    const input = document.getElementsByClassName(element.className)[1];
+    const input = document.getElementById(element.getAttribute('for'));
     input.value++;
     if (isUpdateNeeded) {
         changeAmount(input);
@@ -17,7 +17,7 @@ function increaseValue(element, isUpdateNeeded) {
 }
 
 function addToCart() {
-    const input = document.getElementById("input");
+    const input = document.getElementById("product");
     const cartRequest = new XMLHttpRequest();
     cartRequest.open("POST", "http://localhost:3000/cart?method=append", true);
     cartRequest.setRequestHeader("Content-Type", "application/json");
@@ -30,11 +30,18 @@ function addToCart() {
 }
 
 function changeAmount(input) {
-
+    const prizes = document.getElementsByClassName("prize");
+    let prize
+    for (let i = 0; i < prizes.length; i++) {
+        if (prizes[i].getAttribute('for') === input.id) {
+            prize = prizes[i];
+            break;
+        }
+    }
     const amountRequest = new XMLHttpRequest();
     amountRequest.open("POST", "http://localhost:3000/cart?method=set", true);
     amountRequest.setRequestHeader("Content-Type", "application/json");
-    amountRequest.send(JSON.stringify({product_id: input.className, amount: input.value}));
+    amountRequest.send(JSON.stringify({product_id: input.id, amount: input.value}));
 
     amountRequest.onload = () => {
         const response = JSON.parse(amountRequest.response);
@@ -42,14 +49,15 @@ function changeAmount(input) {
             alert(response.message);
         }
         input.value = response.value;
-
+        prize.innerHTML = Math.round((Number(response.prize) + Number.EPSILON) * 100) / 100 + " ZŁ"
     }
 }
 
 function deleteRecords(element) {
     const deleteRequest = new XMLHttpRequest();
     if (element !== undefined) {
-        deleteRequest.open("DELETE", "http://localhost:3000/cart?entries=" + element.className, true);
+        console.log(element)
+        deleteRequest.open("DELETE", "http://localhost:3000/cart?entries=" + element.getAttribute('for'), true);
     } else {
         deleteRequest.open("DELETE", "http://localhost:3000/cart?entries=ALL", true);
     }
@@ -57,6 +65,8 @@ function deleteRecords(element) {
         document.location.href = deleteRequest.responseURL;
     }
     deleteRequest.send();
+}
 
-
+function redirect(href) {
+    window.location.href = href;
 }

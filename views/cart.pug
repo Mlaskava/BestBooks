@@ -10,12 +10,12 @@ block append body
     ul
     for product in products
         li
-            p #{product.name}
             img(src="../images/" + product.img_name)
-            button(class=product.product_id onclick="deleteRecords(this)") X
-            div
-                button(class=product.product_id onclick="decreaseValue(this, true)") -
-                input(class=product.product_id value = product.amount onchange="changeAmount(this)")
-                button(class=product.product_id onclick = "increaseValue(this, true)") +
-            p.prize #{product.amount * product.prize} ZŁ
-    button(onclick="deleteRecords()") Przejdź do płatności
+            a.name(href="products/" + product.product_id) #{product.name}
+            button.delete(for=product.product_id onclick="deleteRecords(this)") X
+            div.amount
+                button#left(for=product.product_id onclick="decreaseValue(this, true)") -
+                input(id=product.product_id value=product.amount onchange="changeAmount(this)")
+                button#right(for=product.product_id onclick = "increaseValue(this, true)") +
+            p.prize(for=product.product_id) #{Math.round((Number(product.prize*product.amount) + Number.EPSILON) * 100) / 100} ZŁ
+    button#summary(onclick="deleteRecords()") Przejdź do płatności

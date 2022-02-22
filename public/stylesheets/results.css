@@ -1,7 +1,7 @@
 ul {
-    position: absolute;
-    top: 10vh;
-    left: 20vw;
+    float: right;
+    position: relative;
+    left: -5vw;
     width: 70vw;
 }
 
@@ -10,7 +10,7 @@ li {
     background-color: #D7E9FF;
     position: relative;
     height: 25vh;
-    margin-top: 10vh;
+    margin-top: 2vh;
     left: -2vw;
     list-style-type: none;
 }
@@ -25,7 +25,7 @@ li + li {
 }
 
 li img {
-    height: 25vh;
+    height: 26vh;
     width: 10vw;
     position: relative;
 
@@ -44,7 +44,7 @@ li p {
 }
 
 .name {
-    margin: -25vh -5vw;
+    margin: -25vh -7vw;
     font-size: calc(1.5vw + 1.5vh);
     font-weight: bold;
     max-width: 60vw;

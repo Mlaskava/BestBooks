@@ -44,6 +44,29 @@ button:hover {
     cursor: pointer;
 }
 
-p {
+.text {
+    top: 5vh;
+    position: relative;
+    left: 45vw;
+    font-size: calc(1vw + 1vh);
+}
 
+p {
+    color: grey;
+}
+
+#login {
+    left: 46vw;
+}
+
+#register {
+    left: 45.5vw;
+}
+
+#login:hover {
+    opacity: 0.7;
+}
+
+#register:hover {
+    opacity: 0.7;
 }

@@ -11,7 +11,6 @@ router.get('/:id', function (req, res, next) {
         if (err) {
             throw err;
         }
-        console.log(result[0]);
         options.product = result[0];
         sendProduct('product', options, res);
     })

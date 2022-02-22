@@ -12,6 +12,7 @@ nav {
 }
 
 #homepage {
+    font-weight: bold;
     color: BLACK;
     top: -5px;
     z-index: 12;
@@ -26,7 +27,7 @@ nav {
     border-left: 0 solid transparent;
     border-right: 25px solid transparent;
     height: 0;
-    width: 235px;
+    width: 430px;
 }
 
 #borderBar {

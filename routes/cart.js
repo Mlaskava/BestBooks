@@ -11,7 +11,6 @@ router.get('/', checkAuthenticated, (req, res, next) => {
         if (err) {
             throw err;
         }
-        console.log(result);
         options.products = result;
         res.render('cart', options);
     })
@@ -38,11 +37,11 @@ router.post('/', (req, res, next) => {
             } else if (req.query.method === "set") {
                 if (result.length === 0 || Number(req.body.amount) <= Number(result[0].available_amount)) {
                     const insertSQL = `UPDATE cart SET amount='${req.body.amount}' WHERE id='${req.user.id}' AND product_id='${req.body.product_id}'`;
-                    connection.query(insertSQL, (err) => {
+                    connection.query(insertSQL, (err, aaaa) => {
                         if (err) {
                             throw err;
                         }
-                        res.send({message: "", value: req.body.amount});
+                        res.send({message: "", value: req.body.amount, prize: req.body.amount * result[0].prize});
                     });
                 } else {
                     const insertSQL = `UPDATE cart SET amount='${result[0].available_amount}' WHERE id='${req.user.id}' AND product_id='${req.body.product_id}'`;
@@ -53,7 +52,8 @@ router.post('/', (req, res, next) => {
                     });
                     res.send({
                         message: "Brak wystarczającej ilości produktów na stanie!",
-                        value: result[0].available_amount
+                        value: result[0].available_amount,
+                        prize: result[0].available_amount * result[0].prize
                     });
                 }
             }
@@ -78,5 +78,5 @@ router.delete('/', (req, res) => {
 
 
         })
-
+//@TODO usuwanie kupionej ilości książek z bazy
 module.exports = router;

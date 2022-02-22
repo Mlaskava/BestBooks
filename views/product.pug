@@ -11,15 +11,13 @@ block append body
         img(src="../images/" + product.img_name)
         div#productBasicInfo
             p #{product.name}
-            p #{product.prize} Złotych
+            p #{product.prize} ZŁ
             p Liczba sztuk:
 
-
-
             div
-                button#left(class=product.product_id onclick="decreaseValue(this, false)") -
-                input#input(class=product.product_id value=1)
-                button#right(class=product.product_id onclick="increaseValue(this, false)") +
+                button#left(for="product" onclick="decreaseValue(this, false)") -
+                input#product(class=product.product_id value=1)
+                button#right(for="product" onclick="increaseValue(this, false)") +
                 p#productAmount z #{product.available_amount} sztuk
             button#addToCart(onclick="addToCart()") Dodaj do koszyka
         p#description #{product.description}
